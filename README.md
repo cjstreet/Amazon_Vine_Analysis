@@ -2,7 +2,7 @@
 Perform ETL, determine bias, and analyze  Amazon Product Reviews
 
 ## Overview
-
+Overview of the analysis: Explain the purpose of this analysis.
 
 ## Resources
 
@@ -22,7 +22,15 @@ The purpose of this analysis is well defined
 
 There is a bulleted list that addresses the three questions for unpaid and paid program reviews 
 
+Results: Using bulleted lists and images of DataFrames as support, address the following questions:
+How many Vine reviews and non-Vine reviews were there?
+How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
+What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?
+
 ## Summary
 
-The summary states whether or not there is bias, and the results support this statement (2 pt)
-An additional analysis is recommended to support the statement (2 pt)
+State if there is any positivity bias for reviews in the Vine program. Use the results of your analysis to support your statement. Then, provide one additional analysis that you could do with the dataset to support your statement.
+
+
+
+
