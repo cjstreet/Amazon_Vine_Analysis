@@ -2,7 +2,11 @@
 Perform ETL, determine bias, and analyze  Amazon Product Reviews
 
 ## Overview
-Overview of the analysis: Explain the purpose of this analysis.
+The objective is to analyze Amazon reviews written by members of the paid Amazon Vine program. The Amazon Vine program is a service that allows manufacturers and publishers to receive reviews for their products. Companies like SellBy pay a small fee to Amazon and provide products to Amazon Vine members, who are then required to publish a review. 
+
+The dataset chosen will be wireless products.
+
+Overview of steps: Use PySpark to perform the ETL process to extract the dataset, transform the data, connect to an AWS RDS instance, and load the transformed data into pgAdmin. Then use Pandas to determine if there is any bias toward favorable reviews from Vine members in your dataset. Finally include a written summary of paid vs unpaid 5-Star ratings for bias.
 
 ## Resources
 
@@ -11,12 +15,6 @@ Overview of the analysis: Explain the purpose of this analysis.
 * AWS RDS for PostgreSQL
 * Google CoLab
  
-## Analysis 
-
-Links to images are working, and code is formatted and displayed correctly 
-The written analysis has the following:
-Overview of the analysis of the Vine program:
-The purpose of this analysis is well defined 
 
  <img src="https://github.com/cjstreet/Amazon_Vine_Analysis/blob/main/Amazon_Vine_Analysis/Resources/pgAdmin.png" width="600" height="400">
 
@@ -24,40 +22,67 @@ The purpose of this analysis is well defined
 
 There is a bulleted list that addresses the three questions for unpaid and paid program reviews 
 
-Results: Using bulleted lists and images of DataFrames as support, address the following questions:
-How many Vine reviews and non-Vine reviews were there?
-How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
-What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?
+**How many Vine reviews and non-Vine reviews were there?
+## PAID
+
+```python
+#The total number of paid reviews
+total_paid = len(vine_paid_df)
+total_paid
+```
+    613
+
+### There are 613, total paid reviews.
+
+**How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
+
+```python
+five_paid_df = vine_paid_df[vine_paid_df['star_rating'] == 5]
+```
+
+```python
+total_five_star = len(five_paid_df)
+total_five_star
+```
+    222
+
+### There are 222, 5-star paid reviews.
+
+**What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?
+
+```python
+# percentage of paid 5-star reviews
+
+percent_5_star = total_five_star/total_paid
+percent_5_star
+```
+    0.3621533442088091
+
+### 36% of the paid reviews are 5-star ratings
+
+
+
 
 ## Summary
 
 State if there is any positivity bias for reviews in the Vine program. Use the results of your analysis to support your statement. Then, provide one additional analysis that you could do with the dataset to support your statement.
 
-
-
 ## Vine Review Analysis by CStreet
 
 Import Dependencies
-
 
 ```python
 import pandas as pd
 import os
 ```
-
-
 ```python
 vine_data = os.path.join('vine_table.csv')
 vine_df = pd.read_csv(vine_data)
 ```
 
-
 ```python
 vine_df.head()
 ```
-
-
-
 
 <div>
 
@@ -123,23 +148,16 @@ vine_df.head()
 </table>
 </div>
 
-
-
 ### Filter the data and create a new DataFrame or table to retrieve all the rows where the total_votes count is equal to or greater than 20 to pick reviews that are more likely to be helpful and to avoid having division by zero errors later on.
-
 
 ```python
 #filtered dataframe
 vine_filtered_df = vine_df.query('total_votes >= 20')
 ```
 
-
 ```python
 vine_filtered_df.head()
 ```
-
-
-
 
 <div>
 
@@ -204,7 +222,6 @@ vine_filtered_df.head()
   </tbody>
 </table>
 </div>
-
 
 
 ### Filter the new DataFrame or table created in Step 1 and create a new DataFrame or table to retrieve all the rows where the number of helpful_votes divided by total_votes is equal to or greater than 50%.
@@ -214,16 +231,11 @@ vine_filtered_df.head()
 vine_filtered_df = vine_filtered_df.query('helpful_votes/total_votes >= .50')
 ```
 
-
 ```python
 vine_filtered_df.head()
 ```
 
-
-
-
 <div>
-
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -286,18 +298,11 @@ vine_filtered_df.head()
 </table>
 </div>
 
-
-
 ### Filter the DataFrame or table created in Step 2, and create a new DataFrame or table that retrieves all the rows where a review was written as part of the Vine program (paid), vine == 'Y'.
-
 
 ```python
 vine_filtered_df.dtypes
 ```
-
-
-
-
     review_id             object
     star_rating          float64
     helpful_votes        float64
@@ -306,23 +311,14 @@ vine_filtered_df.dtypes
     verified_purchase     object
     dtype: object
 
-
-
-
 ```python
 vine_paid_df = vine_filtered_df[vine_filtered_df["vine"] == "Y"]
 ```
 
-
 ```python
 vine_paid_df.tail(15)
 ```
-
-
-
-
 <div>
-
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -475,25 +471,16 @@ vine_paid_df.tail(15)
 </table>
 </div>
 
-
-
 ### Retrieve all the rows where the review was not part of the Vine program (unpaid)
-
 
 ```python
 vine_notPaid_df = vine_filtered_df[vine_filtered_df["vine"] == "N"]
 ```
 
-
 ```python
 vine_notPaid_df.head(15)
 ```
-
-
-
-
 <div>
-
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -646,8 +633,6 @@ vine_notPaid_df.head(15)
 </table>
 </div>
 
-
-
 ### The total number of reviews, the number of 5-star reviews, and the percentage of 5-star reviews for the two types of review (paid vs unpaid)
 
 ## PAID
@@ -659,26 +644,16 @@ total_paid = len(vine_paid_df)
 total_paid
 ```
 
-
-
-
     613
 
-
-
 ### There are 613, total paid reviews.
-
 
 ```python
 five_paid_df = vine_paid_df[vine_paid_df['star_rating'] == 5]
 five_paid_df.head()
 ```
 
-
-
-
 <div>
-
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -741,20 +716,12 @@ five_paid_df.head()
 </table>
 </div>
 
-
-
-
 ```python
 total_five_star = len(five_paid_df)
 total_five_star
 ```
 
-
-
-
     222
-
-
 
 ### There are 222, 5-star paid reviews.
 
@@ -765,13 +732,7 @@ total_five_star
 percent_5_star = total_five_star/total_paid
 percent_5_star
 ```
-
-
-
-
     0.3621533442088091
-
-
 
 ### 36% of the paid reviews are 5-star ratings
 
