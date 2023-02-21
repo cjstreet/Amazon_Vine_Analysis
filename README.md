@@ -83,10 +83,7 @@ percent_5_star_unpaid
 
 ## Summary
 
-State if there is any positivity bias for reviews in the Vine program. Use the results of your analysis to support your statement. Then, provide one additional analysis that you could do with the dataset to support your statement.
-
-There appears to be no positivity bias for reviews in the Vine Program (paid). 36% of the Vine reviews were 5-Star, whereas 47% of the non-Vine reviews were 5-Star. The non-Vine has a higher percentage of positive reviews for wireless products.
-
+There appears to be no positivity bias for reviews in the Vine Program (paid). 36% of the Vine reviews were 5-Star, whereas 47% of the non-Vine reviews were 5-Star. The non-Vine has a higher percentage of positive reviews for wireless products. Using the Vine table dataset you could  examine the difference between  3 and 4 star reviews for Vine and Non-Vine to provide additional support to the claim. 
 
 ## Vine Review Analysis by CStreet
 
