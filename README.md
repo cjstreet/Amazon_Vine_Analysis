@@ -33,6 +33,14 @@ total_paid
 
 ### There are 613, total paid reviews.
 
+```python
+total_unpaid = len(vine_notPaid_df)
+total_unpaid
+```
+    64968
+    
+### There are 64,968, total unpaid reviews.
+
 ## ** How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
 
 ```python
@@ -45,9 +53,8 @@ total_five_star
 ```
     222
 
-<span style="color:blue">
-There are 222, 5-star paid reviews.
-</style>
+<span style="color:red">
+There are 222, 5-star paid reviews. </style>
 
 
 ```python
