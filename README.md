@@ -22,8 +22,7 @@ Overview of steps: Use PySpark to perform the ETL process to extract the dataset
 
 There is a bulleted list that addresses the three questions for unpaid and paid program reviews 
 
-**How many Vine reviews and non-Vine reviews were there?
-## PAID
+## ** How many Vine reviews and non-Vine reviews were there? **
 
 ```python
 #The total number of paid reviews
@@ -34,7 +33,7 @@ total_paid
 
 ### There are 613, total paid reviews.
 
-**How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
+## ** How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
 
 ```python
 five_paid_df = vine_paid_df[vine_paid_df['star_rating'] == 5]
@@ -48,7 +47,7 @@ total_five_star
 
 ### There are 222, 5-star paid reviews.
 
-**What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?
+## ** What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?
 
 ```python
 # percentage of paid 5-star reviews
