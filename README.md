@@ -39,7 +39,7 @@ total_unpaid
 ```
     64968
     
-**There are 64,968, total unpaid reviews.
+**There are 64,968, total unpaid reviews.**
 
 ## 2.  How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
 <br>
@@ -59,7 +59,7 @@ total_five_star_unpaid = len(five_unpaid_df)
 total_five_star_unpaid
 ```
     30543
-**There are 30,543, 5-star reviews that are unpaid.
+**There are 30,543, 5-star reviews that are unpaid.**
 
 ### 3. What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?
 
@@ -71,7 +71,7 @@ percent_5_star
 ```
     0.3621533442088091
 
-**36% of the paid reviews are 5-star ratings
+**36% of the paid reviews are 5-star ratings**
 
 ```python
 percent_5_star_unpaid = (total_five_star_unpaid /total_unpaid)
@@ -79,8 +79,9 @@ percent_5_star_unpaid
 ```
     0.47012375323236055
 
-**47% of the unpaid reviews are 5-star ratings
+**47% of the unpaid reviews are 5-star ratings**
 
+ <th>review_id</th>
 
 ## Summary
 
