@@ -44,7 +44,7 @@ total_five_star = len(five_paid_df)
 total_five_star
 ```
     222
-$${\color{blue}### There are 222, 5-star paid reviews.}$$
+$${\color{blue}There are 222, 5-star paid reviews.}$$
 
 
 ```python
