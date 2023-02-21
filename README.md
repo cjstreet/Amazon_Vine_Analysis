@@ -32,5 +32,6 @@ What percentage of Vine reviews were 5 stars? What percentage of non-Vine review
 State if there is any positivity bias for reviews in the Vine program. Use the results of your analysis to support your statement. Then, provide one additional analysis that you could do with the dataset to support your statement.
 
 
+ <img src="https://github.com/cjstreet/MechaCar_Statistical_Analysis/blob/main/resources/linear_reg.png" width="600" height="400">
 
 
