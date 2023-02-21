@@ -53,8 +53,8 @@ total_five_star
 ```
     222
 
-<span style="color:red">
-There are 222, 5-star paid reviews. </style>
+<span style="color:blue">
+There are 222, 5-star paid reviews. </span>
 
 
 ```python
