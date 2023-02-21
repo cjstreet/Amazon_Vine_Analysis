@@ -21,6 +21,7 @@ Overview of steps: Use PySpark to perform the ETL process to extract the dataset
 ## Results:
 
 ### 1. How many Vine reviews (paid) and non-Vine (unpaid) reviews were there? 
+
 <br>
 
 ```python
@@ -30,7 +31,7 @@ total_paid
 ```
     613
 
-**There are 613, total paid reviews.
+**There are 613, total paid reviews.**
 
 ```python
 total_unpaid = len(vine_notPaid_df)
@@ -51,7 +52,7 @@ total_five_star = len(five_paid_df)
 total_five_star
 ```
     222
-**There are 222, 5-star paid reviews.
+**There are 222, 5-star paid reviews.**
 
 ```python
 total_five_star_unpaid = len(five_unpaid_df)
