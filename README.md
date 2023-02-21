@@ -20,9 +20,8 @@ Overview of steps: Use PySpark to perform the ETL process to extract the dataset
 
 ## Results:
 
-There is a bulleted list that addresses the three questions for unpaid and paid program reviews 
-
-## ** How many Vine reviews (paid) and non-Vine (unpaid) reviews were there? **
+### 1. How many Vine reviews (paid) and non-Vine (unpaid) reviews were there? 
+<br>
 
 ```python
 #The total number of paid reviews
@@ -31,7 +30,7 @@ total_paid
 ```
     613
 
-### There are 613, total paid reviews.
+**There are 613, total paid reviews.
 
 ```python
 total_unpaid = len(vine_notPaid_df)
@@ -39,32 +38,29 @@ total_unpaid
 ```
     64968
     
-### There are 64,968, total unpaid reviews.
+**There are 64,968, total unpaid reviews.
 
-## ** How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
+## 2.  How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
+<br>
 
 ```python
 five_paid_df = vine_paid_df[vine_paid_df['star_rating'] == 5]
 ```
-
 ```python
 total_five_star = len(five_paid_df)
 total_five_star
 ```
     222
-
-<span style="color:blue">There are 222, 5-star paid reviews.</span>
-
+**There are 222, 5-star paid reviews.
 
 ```python
 total_five_star_unpaid = len(five_unpaid_df)
 total_five_star_unpaid
 ```
     30543
+**There are 30,543, 5-star reviews that are unpaid.
 
-### There are 30,543, 5-star reviews that are unpaid.
-
-## ** What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?
+### 3. What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?
 
 ```python
 # percentage of paid 5-star reviews
@@ -74,8 +70,7 @@ percent_5_star
 ```
     0.3621533442088091
 
-### 36% of the paid reviews are 5-star ratings
-
+**36% of the paid reviews are 5-star ratings
 
 ```python
 percent_5_star_unpaid = (total_five_star_unpaid /total_unpaid)
@@ -83,7 +78,7 @@ percent_5_star_unpaid
 ```
     0.47012375323236055
 
-### 47% of the unpaid reviews are 5-star ratings
+**47% of the unpaid reviews are 5-star ratings
 
 
 ## Summary
