@@ -45,7 +45,10 @@ total_five_star
 ```
     222
 
-$\{\color{red}fbox{There are 222, 5-star paid reviews.}$
+<span style="color:blue">
+There are 222, 5-star paid reviews.
+</style>
+
 
 ```python
 total_five_star_unpaid = len(five_unpaid_df)
